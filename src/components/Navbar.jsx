@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <>
-      <div className="navbar bg-slate-400">
+      <div className="navbar  backdrop-blur-xl z-50 fixed top-0 left-0 bg-blue-400/30  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -60,7 +60,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login'>Login</Link>
+          <Link to='/login' className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white">Login</Link>
         </div>
       </div>
     </>
