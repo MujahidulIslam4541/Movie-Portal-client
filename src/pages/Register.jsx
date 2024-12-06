@@ -1,17 +1,40 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup } from "firebase/auth";
 
 const Register = () => {
+  const { createNewUser, setUser } = useContext(AuthContext);
 
-    const handleRegisterSubmit=e=>{
-        e.preventDefault()
-        const from=e.target;
-        const name=from.name.value;
-        const photo=from.photo.value;
-        const email=from.email.value;
-        const password=from.password.value;
-        console.log({name,photo,email,password});
-    }
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const name = from.name.value;
+    const photo = from.photo.value;
+    const email = from.email.value;
+    const password = from.password.value;
+    console.log({ name, photo, email, password });
+
+    createNewUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
+  const handleGoogleSignUp = () => {
+    signInWithPopup(auth, provider).then((result) => {
+      console.log(result);
+    });
+  };
 
   return (
     <div>
@@ -75,25 +98,30 @@ const Register = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-blue-500 text-white font-semibold">Register</button>
+              <button className="btn bg-blue-500 text-white font-semibold">
+                Register
+              </button>
             </div>
           </form>
           <p className=" px-4">
-             Have An Account ?
+            Have An Account ?
             <Link to="/login" className="font-semibold text-red-500">
               Login
             </Link>
           </p>
           <div className="divider px-8">OR</div>
-        <div className="flex justify-center items-center gap-2 border-2 border-blue-500 py-2 rounded-lg m-4 btn">
-          <button className="text-3xl ">
-            <FcGoogle></FcGoogle>
-          </button>
-          <p className="font-bold">Continue With Google</p>
+          <div
+            onClick={handleGoogleSignUp}
+            className="flex justify-center items-center gap-2 border-2 border-blue-500 py-2 rounded-lg m-4 btn"
+          >
+            <button className="text-3xl ">
+              <FcGoogle></FcGoogle>
+            </button>
+            <p className="font-bold">Continue With Google</p>
+          </div>
         </div>
       </div>
-        </div>
-      </div>
+    </div>
     // </div>
   );
 };

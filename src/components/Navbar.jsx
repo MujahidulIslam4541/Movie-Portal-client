@@ -1,7 +1,9 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 export default function Navbar() {
+  const { user, logOut } = useContext(AuthContext);
   return (
     <>
       <div className="navbar  backdrop-blur-xl z-50 fixed top-0 left-0 bg-blue-400/30  ">
@@ -41,7 +43,7 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">{user && user.email}</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -60,7 +62,21 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/login' className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white">Login</Link>
+          {user && user.email ? (
+            <button
+              onClick={logOut}
+              className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
+            >
+              LogOut
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>
