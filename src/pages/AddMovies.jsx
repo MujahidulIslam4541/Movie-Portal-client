@@ -1,4 +1,8 @@
+
+import Swal from "sweetalert2";
+
 const AddMovies = () => {
+
   const handleAddMovies = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -8,7 +12,36 @@ const AddMovies = () => {
     const duration = from.duration.value;
     const release = from.release.value;
     const rating = from.rating.value;
-    console.log({ photo, title, genre, duration, release, rating  });
+    const textarea = from.textarea.value;
+    const AddMovies = {
+      photo,
+      title,
+      genre,
+      duration,
+      release,
+      rating,
+      textarea,
+    };
+    console.log(AddMovies);
+
+    fetch("http://localhost:5000/movies", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(AddMovies),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if(data.insertedId){
+          Swal.fire({
+            title: "Success",
+            text: "Movies Added Successfully",
+            icon: "success"
+          });
+        }
+      });
   };
 
   return (
@@ -24,6 +57,7 @@ const AddMovies = () => {
               name="photo"
               placeholder="Photo URL"
               className="w-full border py-2 rounded-md px-4"
+              required
             />
           </div>
           <div>
@@ -34,47 +68,64 @@ const AddMovies = () => {
               name="title"
               placeholder="Movie Title"
               className="w-full border py-2 rounded-md px-4"
+              required
             />
           </div>
           <div>
             <label>Genre</label>
             <br />
-            <input
-              type="text"
-              name="genre"
-              placeholder="Genre"
-              className="w-full border py-2 rounded-md px-4"
-            />
+            <select name="genre" id="" className="w-full border py-2 rounded-md px-4">
+              <option value="Comedy">Comedy</option>
+              <option value="Action">Action</option>
+              <option value="Horror">Horror</option>
+              <option value="Drama">Drama </option>
+              <option value="Thriller">Thriller</option>
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Romance">Romance</option>
+            </select>
           </div>
           <div>
             <label>Duration</label>
             <br />
             <input
-              type="text"
+              type="number"
               name="duration"
               placeholder="Duration"
               className="w-full border py-2 rounded-md px-4"
+              required
             />
           </div>
           <div>
             <label>Release Yea</label>
             <br />
             <input
-              type="text"
+              type="number"
               name="release"
               placeholder="Release Year"
               className="w-full border py-2 rounded-md px-4"
+              required
             />
           </div>
           <div>
             <label>Rating </label>
             <br />
             <input
-              type="text"
+              type="number"
               name="rating"
               placeholder="Rating "
               className="w-full border py-2 rounded-md px-4"
+              required
             />
+          </div>
+          <div className="col-span-2">
+            <textarea
+              name="textarea"
+              id=""
+              rows="5"
+              className="w-full border py-2 rounded-md px-4"
+              placeholder="Please Enter Your Movies Details"
+              required
+            ></textarea>
           </div>
 
           <div className="col-span-2 bg-pink-500 text-white py-2 text-center rounded-md text-xl font-semibold">

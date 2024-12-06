@@ -1,15 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../root/Root";
-import Home from "../pages/Home";
 import About from "../pages/About";
 import AddMovies from "../pages/AddMovies";
 import AllMovies from "../pages/AllMovies";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../components/ErrorPage";
-import PrivetRoute from "../provider/privetRoute";
 // import PrivetRoute from "../provider/privetRoute";
-// import { Root } from "postcss";
+import MainHome from "../pages/MainHome";
+// import Movies from "../pages/Movies";
 
 const Router = createBrowserRouter([
   {
@@ -18,8 +17,10 @@ const Router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <MainHome></MainHome>,
+        loader: () => fetch("http://localhost:5000/movies"),
       },
+
       {
         path: "/about",
         element: <About></About>,
@@ -30,11 +31,8 @@ const Router = createBrowserRouter([
       },
       {
         path: "/allMovies",
-        element: (
-          <PrivetRoute>
-            <AllMovies></AllMovies>
-          </PrivetRoute>
-        ),
+        element: <AllMovies></AllMovies>,
+        loader:()=>fetch("http://localhost:5000/movies")
       },
       {
         path: "/login",
