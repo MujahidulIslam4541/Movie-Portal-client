@@ -26,11 +26,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addMovies",
-        element: (
-          <PrivetRoute>
-            <AddMovies></AddMovies>
-          </PrivetRoute>
-        ),
+        element: <AddMovies></AddMovies>,
       },
       {
         path: "/allMovies",
