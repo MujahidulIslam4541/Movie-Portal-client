@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 const Root = () => {
   return (
     <>
-      <section className="h-20">
+      <section className="h-16">
         <Navbar></Navbar>
       </section>
       <Outlet></Outlet>
