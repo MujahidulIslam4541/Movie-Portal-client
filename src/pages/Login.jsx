@@ -1,4 +1,4 @@
-import { Link,  useLocation, useNavigate } from "react-router-dom";
+import { Link,   useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -8,8 +8,6 @@ import { auth } from "../firebase/Firebase";
 const provider = new GoogleAuthProvider();
 export default function Login() {
   const { LoginUser, setUser } = useContext(AuthContext);
-  const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +20,7 @@ export default function Login() {
       .then((result) => {
         console.log(result);
         setUser(result.user);
-        navigate(location?.state ? location.state : "/");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);

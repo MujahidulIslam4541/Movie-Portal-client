@@ -28,11 +28,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addMovies",
-        element: <AddMovies></AddMovies>,
+        element: (
+          <PrivetRoute>
+            <AddMovies></AddMovies>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/allMovies",
-        element: <AllMovies></AllMovies>,
+        element: (
+          <PrivetRoute>
+            <AllMovies></AllMovies>,
+          </PrivetRoute>
+        ),
         loader: () => fetch("http://localhost:5000/movies"),
       },
       {

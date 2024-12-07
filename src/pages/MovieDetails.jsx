@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const MovieDetails = () => {
   const movie = useLoaderData();
-  const { title, duration, genre, rating, release, textarea, _id, photo } =
+  const { title, duration, genre, rating, release, textarea,  photo } =
     movie;
   return (
     <div className=" bg-red-200">

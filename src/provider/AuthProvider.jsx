@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/Firebase";
 // import toast from "react-hot-toast";
@@ -29,6 +30,10 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const updatedUserProfile=(updateData)=>{
+    return updateProfile(auth.currentUser,updateData)
+  }
+
   const authInfo = {
     user,
     setUser,
@@ -36,6 +41,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     LoginUser,
     createNewUser,
+    updatedUserProfile,
   };
 
   useEffect(() => {

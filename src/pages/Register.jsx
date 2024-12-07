@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -6,8 +6,9 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { getAuth, signInWithPopup } from "firebase/auth";
 
 const Register = () => {
-  const { createNewUser, setUser } = useContext(AuthContext);
-
+  const { createNewUser, setUser, updatedUserProfile } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -19,8 +20,11 @@ const Register = () => {
 
     createNewUser(email, password)
       .then((result) => {
-        console.log(result.user);
         setUser(result.user);
+        console.log(result.user);
+        updatedUserProfile({ displayName: name, photoURL: photo }).then(() => {
+          navigate("/");
+        });
       })
       .catch((error) => {
         console.log(error);

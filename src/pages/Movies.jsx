@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 const Movies = ({ movie }) => {
   // console.log(movie);
 
-  const { title, duration, genre, rating, release, textarea, _id, photo } =
+  const { title, duration, genre, rating, release,  _id, photo } =
     movie;
   return (
     <div className="mt-10">

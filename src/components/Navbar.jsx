@@ -44,28 +44,43 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">{user && user.email}</a>
+          <a className="btn btn-ghost text-2xl font-bold">CinemaSpot</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200" >
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about" className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">About</Link>
             </li>
             <li>
-              <Link to="/allMovies">All Movies</Link>
+              <Link to="/allMovies" className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">All Movies</Link>
             </li>
             <li>
-              <Link to="/addMovies">Add Movie</Link>
+              <Link to="/addMovies" className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">Add Movie</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <p className="text-4xl mr-4">
-            <FaRegUserCircle />
-          </p>
+          <div>
+            {user && user.email ? (
+              <div>
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src={user.photoURL}
+                  alt=""
+                />
+                {/* <p>{user.displayName}</p> */}
+              </div>
+            ) : (
+              <p className="text-4xl mr-4">
+                <FaRegUserCircle />
+              </p>
+            )}
+          </div>
           {user && user.email ? (
             <button
               onClick={logOut}
