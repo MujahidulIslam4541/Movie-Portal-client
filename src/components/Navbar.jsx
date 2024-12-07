@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaRegUserCircle } from "react-icons/fa";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
@@ -62,6 +63,9 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end">
+          <p className="text-4xl mr-4">
+            <FaRegUserCircle />
+          </p>
           {user && user.email ? (
             <button
               onClick={logOut}

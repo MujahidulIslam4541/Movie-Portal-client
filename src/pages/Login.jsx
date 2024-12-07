@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link,  useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { getAuth, signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
-
+import { auth } from "../firebase/Firebase";
+const provider = new GoogleAuthProvider();
 export default function Login() {
   const { LoginUser, setUser } = useContext(AuthContext);
-
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -19,14 +22,12 @@ export default function Login() {
       .then((result) => {
         console.log(result);
         setUser(result.user);
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-  const auth = getAuth();
-  const provider = new GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider).then((result) => {
