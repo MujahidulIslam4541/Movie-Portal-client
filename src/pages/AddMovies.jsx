@@ -1,8 +1,6 @@
-
 import Swal from "sweetalert2";
 
 const AddMovies = () => {
-
   const handleAddMovies = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -22,7 +20,14 @@ const AddMovies = () => {
       rating,
       textarea,
     };
-    console.log(AddMovies);
+
+    if (!textarea || !photo || !title || !genre || !duration || !rating) {
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please provide all required fields!",
+      });
+    }
 
     fetch("http://localhost:5000/movies", {
       method: "POST",
@@ -34,11 +39,11 @@ const AddMovies = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if(data.insertedId){
+        if (data.insertedId) {
           Swal.fire({
             title: "Success",
             text: "Movies Added Successfully",
-            icon: "success"
+            icon: "success",
           });
         }
       });
@@ -57,7 +62,6 @@ const AddMovies = () => {
               name="photo"
               placeholder="Photo URL"
               className="w-full border py-2 rounded-md px-4"
-              required
             />
           </div>
           <div>
@@ -68,13 +72,16 @@ const AddMovies = () => {
               name="title"
               placeholder="Movie Title"
               className="w-full border py-2 rounded-md px-4"
-              required
             />
           </div>
           <div>
             <label>Genre</label>
             <br />
-            <select name="genre" id="" className="w-full border py-2 rounded-md px-4">
+            <select
+              name="genre"
+              id=""
+              className="w-full border py-2 rounded-md px-4"
+            >
               <option value="Comedy">Comedy</option>
               <option value="Action">Action</option>
               <option value="Horror">Horror</option>
@@ -92,13 +99,16 @@ const AddMovies = () => {
               name="duration"
               placeholder="Duration"
               className="w-full border py-2 rounded-md px-4"
-              required
             />
           </div>
           <div>
-            <label>Release Yea</label>
+            <label>Release Year</label>
             <br />
-            <select name="release" id=""  className="w-full border py-2 rounded-md px-4">
+            <select
+              name="release"
+              id=""
+              className="w-full border py-2 rounded-md px-4"
+            >
               <option value="2011">2011</option>
               <option value="2012">2012</option>
               <option value="2013">2013</option>
@@ -123,7 +133,6 @@ const AddMovies = () => {
               name="rating"
               placeholder="Rating "
               className="w-full border py-2 rounded-md px-4"
-              required
             />
           </div>
           <div className="col-span-2">
@@ -133,7 +142,6 @@ const AddMovies = () => {
               rows="5"
               className="w-full border py-2 rounded-md px-4"
               placeholder="Please Enter Your Movies Details"
-              required
             ></textarea>
           </div>
 

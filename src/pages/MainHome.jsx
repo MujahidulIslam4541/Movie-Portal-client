@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Home from "./Home";
 import Movies from "./Movies";
 import UpcomingMovie from "../components/UpcomingMovie";
+import ExtraSection from "../components/ExtraSection";
 
 const MainHome = () => {
   const movies = useLoaderData();
@@ -33,6 +34,10 @@ const MainHome = () => {
 
       <section className="mt-32 w-11/12 mx-auto">
         <UpcomingMovie></UpcomingMovie>
+      </section>
+
+      <section className="mt-20 w-11/12 mx-auto">
+        <ExtraSection></ExtraSection>
       </section>
     </div>
   );

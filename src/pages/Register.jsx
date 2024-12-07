@@ -17,7 +17,11 @@ const Register = () => {
     const email = from.email.value;
     const password = from.password.value;
     console.log({ name, photo, email, password });
-
+    
+    const regexPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!regexPassword.test(password)) {
+      return alert("please provide valid password");
+    }
     createNewUser(email, password)
       .then((result) => {
         setUser(result.user);
