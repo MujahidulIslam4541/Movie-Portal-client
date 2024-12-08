@@ -24,7 +24,7 @@ const Favaroites = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 w-11/12 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto">
         {favoriteMovies.map((favorite) => (
           <FavoriteMovies
             key={favorite._id}

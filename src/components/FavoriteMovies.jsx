@@ -1,9 +1,42 @@
 import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 /* eslint-disable react/prop-types */
 const FavoriteMovies = ({ favorite }) => {
   const { title, duration, genre, rating, release, textarea, photo, _id } =
     favorite;
+
+  const handleFavoriteDelete=_id=>{
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/favorite/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  }
+
+
   return (
     <div className="w-11/12 mx-auto shadow-xl  flex gap-4 mt-16">
       <div className="bg-base-200 shadow-xl rounded-lg flex items-center p-4 space-x-4">
@@ -37,7 +70,7 @@ const FavoriteMovies = ({ favorite }) => {
       </div>
 
       {/* Delete Button */}
-      <button
+      <button onClick={()=>handleFavoriteDelete(_id)}
         className="btn btn-error btn-circle text-white flex justify-center items-center"
         aria-label="Delete Movie"
       >

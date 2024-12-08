@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
+import ThemeContoler from "./ThemeContoler";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
@@ -52,25 +53,51 @@ export default function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/" className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200" >
+              <Link
+                to="/"
+                className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/about" className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">About</Link>
+              <Link
+                to="/about"
+                className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
+              >
+                About
+              </Link>
             </li>
             <li>
-              <Link to="/allMovies" className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">All Movies</Link>
+              <Link
+                to="/allMovies"
+                className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
+              >
+                All Movies
+              </Link>
             </li>
             <li>
-              <Link to="/addMovies" className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">Add Movie</Link>
+              <Link
+                to="/addMovies"
+                className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
+              >
+                Add Movie
+              </Link>
             </li>
             <li>
-                <Link to="/favorites" className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">My Favorites</Link>
-              </li>
+              <Link
+                to="/favorites"
+                className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
+              >
+                My Favorites
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
+          <div>
+            <ThemeContoler></ThemeContoler>
+          </div>
           <div>
             {user && user.email ? (
               <div>

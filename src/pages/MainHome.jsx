@@ -7,7 +7,6 @@ import ExtraSection from "../components/ExtraSection";
 
 const MainHome = () => {
   const movies = useLoaderData();
-  console.log(movies);
   return (
     <div>
       <Home></Home>
