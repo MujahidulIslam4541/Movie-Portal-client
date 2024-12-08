@@ -1,25 +1,37 @@
 import { useLoaderData } from "react-router-dom";
 import Movies from "./Movies";
-
+import { MdLocalMovies } from "react-icons/md";
 
 const AllMovies = () => {
-    const movies=useLoaderData()
+  const movies = useLoaderData();
 
-    return (
-        <>
-        <div className="bg-violet-300 h-64 flex flex-col justify-center items-center text-center">
-            <h2 className="text-4xl font-bold text-pink-500">All Movies</h2>
-            <p>Browse through our extensive collection of movies from all genres! Discover a wide range of titles, from timeless classics to the latest blockbusters. <br /> Explore movie details, ratings, and more to find your next favorite film!</p>
+  return (
+    <>
+      <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-10 rounded-lg shadow-xl text-center">
+        <div className="flex justify-center items-center space-x-3">
+          <MdLocalMovies className="text-white text-4xl" />
+          <h1 className="text-3xl font-bold text-white">
+            All Movies Collection
+          </h1>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto">
-            {
-                movies.map(movie=><Movies key={movie._id} movie={movie}></Movies>)
-            }
-        </div>
-        
-        </>
-    );
+        <p className="mt-5 text-lg text-gray-100 leading-relaxed">
+          Dive into an extensive collection of movies spanning various genres,
+          timelines, and styles. From timeless classics to the latest
+          blockbusters, this section offers something for every movie
+          enthusiast. Whether youre in the mood for action-packed adventures,
+          heartfelt dramas, hilarious comedies, or thought-provoking stories,
+          youll find them all here. Explore, discover, and enjoy the cinematic
+          treasures that define storytelling at its best!
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto">
+        {movies.map((movie) => (
+          <Movies key={movie._id} movie={movie}></Movies>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default AllMovies;

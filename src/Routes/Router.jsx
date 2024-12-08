@@ -9,6 +9,7 @@ import ErrorPage from "../components/ErrorPage";
 import PrivetRoute from "../provider/privetRoute";
 import MainHome from "../pages/MainHome";
 import MovieDetails from "../pages/MovieDetails";
+import Favaroites from "../components/Favaroites";
 // import Movies from "../pages/Movies";
 
 const Router = createBrowserRouter([
@@ -36,11 +37,8 @@ const Router = createBrowserRouter([
       },
       {
         path: "/allMovies",
-        element: (
-          <PrivetRoute>
-            <AllMovies></AllMovies>,
-          </PrivetRoute>
-        ),
+        element: <AllMovies></AllMovies>,
+
         loader: () => fetch("http://localhost:5000/movies"),
       },
       {
@@ -52,6 +50,15 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/movies/${params.id}`),
+      },
+      {
+        path: "/favorites",
+        element: (
+          <PrivetRoute>
+            <Favaroites></Favaroites>
+          </PrivetRoute>
+        ),
+        loader:()=>fetch('http://localhost:5000/favorite')
       },
       {
         path: "/login",

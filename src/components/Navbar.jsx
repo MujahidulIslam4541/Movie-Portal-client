@@ -42,6 +42,9 @@ export default function Navbar() {
               <li>
                 <Link to="/addMovies">Add Movie</Link>
               </li>
+              <li>
+                <Link to="/favorites">My Favorites</Link>
+              </li>
             </ul>
           </div>
           <a className="btn btn-ghost text-2xl font-bold">CinemaSpot</a>
@@ -62,6 +65,9 @@ export default function Navbar() {
             <li>
               <Link to="/addMovies" className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">Add Movie</Link>
             </li>
+            <li>
+                <Link to="/favorites" className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200">My Favorites</Link>
+              </li>
           </ul>
         </div>
         <div className="navbar-end">
