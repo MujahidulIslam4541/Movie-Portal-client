@@ -53,7 +53,7 @@ const AddMovies = () => {
       <h2 className="text-2xl text-center py-4 font-bold">Add Movies</h2>
       <form onSubmit={handleAddMovies}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8">
-          <div>
+          <div className="col-span-1">
             <label>Movie Portal</label>
             <br />
             <input
@@ -63,7 +63,7 @@ const AddMovies = () => {
               className="w-full border py-2 rounded-md px-4"
             />
           </div>
-          <div>
+          <div className="col-span-1">
             <label>Movie Title</label>
             <br />
             <input
@@ -73,7 +73,7 @@ const AddMovies = () => {
               className="w-full border py-2 rounded-md px-4"
             />
           </div>
-          <div>
+          <div className="col-span-1">
             <label>Genre</label>
             <br />
             <select
@@ -90,7 +90,7 @@ const AddMovies = () => {
               <option value="Romance">Romance</option>
             </select>
           </div>
-          <div>
+          <div className="col-span-1">
             <label>Duration</label>
             <br />
             <input
@@ -100,7 +100,7 @@ const AddMovies = () => {
               className="w-full border py-2 rounded-md px-4"
             />
           </div>
-          <div>
+          <div className="col-span-1">
             <label>Release Year</label>
             <br />
             <select
@@ -124,7 +124,7 @@ const AddMovies = () => {
               <option value="2024">2024</option>
             </select>
           </div>
-          <div>
+          <div className="col-span-1">
             <label>Rating </label>
             <br />
             <input
@@ -134,7 +134,7 @@ const AddMovies = () => {
               className="w-full border py-2 rounded-md px-4"
             />
           </div>
-          <div className="col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <textarea
               name="textarea"
               id=""
@@ -144,7 +144,7 @@ const AddMovies = () => {
             ></textarea>
           </div>
 
-          <div className="col-span-2 bg-pink-500 text-white py-2 text-center rounded-md text-xl font-semibold">
+          <div className=" col-span-1 md:col-span-2 bg-pink-500 text-white py-2 text-center rounded-md text-xl font-semibold">
             <input type="submit" value="Add Movie" />
           </div>
         </div>

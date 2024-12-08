@@ -46,6 +46,9 @@ export default function Navbar() {
               <li>
                 <Link to="/favorites">My Favorites</Link>
               </li>
+              <div>
+                <ThemeContoler></ThemeContoler>
+              </div>
             </ul>
           </div>
           <a className="btn btn-ghost text-2xl font-bold">CinemaSpot</a>
@@ -92,17 +95,18 @@ export default function Navbar() {
                 My Favorites
               </Link>
             </li>
+            
           </ul>
         </div>
         <div className="navbar-end">
-          <div>
+        <div className="hidden md:block ">
             <ThemeContoler></ThemeContoler>
           </div>
           <div>
             {user && user.email ? (
               <div>
                 <img
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 rounded-full mr-2"
                   src={user.photoURL}
                   alt=""
                 />

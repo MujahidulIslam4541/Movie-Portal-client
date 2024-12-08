@@ -112,36 +112,37 @@ const MovieDetails = () => {
           </ul>
 
           {/* Buttons */}
-          <div className="mt-6 flex space-x-4">
+          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3  space-x-4">
             <button
               onClick={() => handleDelete(_id)}
-              className="btn btn-error flex items-center space-x-2 hover:scale-105 transition-transform duration-300"
+              className="btn col-span-1 btn-error flex items-center space-x-2 hover:scale-105 transition-transform duration-300"
             >
               <AiFillDelete className="text-lg" />
               <span>Delete Movie</span>
             </button>
             <button
               onClick={() => handleAddFavorite(_id)}
-              className="btn btn-success flex items-center space-x-2 hover:scale-105 transition-transform duration-300"
+              className="btn col-span-1 btn-success flex items-center space-x-2 hover:scale-105 transition-transform duration-300"
             >
               <AiOutlineHeart className="text-lg" />
               <span>Add to Favorite</span>
             </button>
 
-            <Link to={`/updateMovie/${_id}`} className="btn btn-warning  px-8 py-3 shadow-lg flex items-center gap-2 hover:bg-yellow-600 transition duration-300 hover:scale-105 ">
+            <Link to={`/updateMovie/${_id}`} className="btn col-span-1 btn-warning  px-8 py-3 shadow-lg flex items-center gap-2 hover:bg-yellow-600 transition duration-300 hover:scale-105 ">
               <FaEdit className="text-white" />
               Update Movie
             </Link>
-
-          
-          </div>
-          <Link
+            <Link
               to={"/allMovies"}
-              className="btn btn-primary mt-4 w-52   px-8 py-3 shadow-lg flex items-center gap-2 hover:scale-105 transition-transform duration-300"
+              className="btn btn-primary col-span-1 mt-4    px-8 py-3 shadow-lg flex items-center gap-2 hover:scale-105 transition-transform duration-300"
             >
               <FaPlay className="text-white" />
               See All Movies
             </Link>
+
+          
+          </div>
+          
         </div>
       </div>
     </div>

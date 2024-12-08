@@ -37,7 +37,7 @@ const FavoriteMovies = ({ favorite }) => {
 
   return (
     <div className="w-11/12 mx-auto shadow-xl  flex gap-4 mt-16">
-      <div className="bg-base-200 shadow-xl rounded-lg flex items-center p-4 space-x-4">
+      <div className="bg-base-200 shadow-xl rounded-lg block md:flex items-center p-4 space-x-4">
       {/* Movie Poster */}
       <img
         src={photo}
