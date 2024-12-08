@@ -3,7 +3,8 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer footer-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-t-3xl p-8 mt-32 shadow-xl">
+      <footer className="footer footer-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-t-3xl p-4 mt-32 shadow-xl">
+        <h2 className="text-2xl font-bold text-center ">CinemaSpot</h2>
         <nav className="grid grid-flow-col gap-6 mb-4">
           <a className="link link-hover text-xl hover:text-yellow-300 transition-colors duration-300">
             About us
@@ -19,7 +20,7 @@ const Footer = () => {
           </a>
         </nav>
 
-        <div className="flex justify-center gap-8 mb-4">
+        <div className="flex justify-center gap-8 ">
           <a
             href="#"
             className="text-white hover:text-yellow-300 transition-colors duration-300"
@@ -40,7 +41,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <aside className="text-center mt-2">
+        <aside className="text-center ">
           <p className="text-lg">
             Copyright © {new Date().getFullYear()} - All rights reserved by ACME
             Industries Ltd

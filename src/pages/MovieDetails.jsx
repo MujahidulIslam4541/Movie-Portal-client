@@ -1,6 +1,7 @@
 import { AiFillDelete, AiOutlineHeart } from "react-icons/ai";
+import { FaEdit, FaPlay } from "react-icons/fa";
 import { MdOutlineMovie } from "react-icons/md";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MovieDetails = () => {
@@ -55,7 +56,7 @@ const MovieDetails = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success",
-            text: "Movies Added Successfully",
+            text: "Add to Favorite Successfully",
             icon: "success",
           });
         }
@@ -79,39 +80,38 @@ const MovieDetails = () => {
       </div>
 
       <div className="flex flex-col md:flex-row items-center bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg">
-        {/* Movie Image */}
         <div className="w-full h-80 md:w-1/3 rounded-lg overflow-hidden shadow-md">
-          <img
-            src={photo}
-            alt={title}
-            className=" w-full h-full"
-          />
+          <img src={photo} alt={title} className=" w-full h-full" />
         </div>
 
-        {/* Movie Information */}
         <div className="w-full md:w-2/3 md:ml-6 text-gray-100 mt-6 md:mt-0">
-          <h2 className="text-4xl font-bold text-white mb-2">
-            {title}
-          </h2>
-          <p className="text-gray-400 mb-4">
-            {textarea}
-          </p>
+          <h2 className="text-4xl font-bold text-white mb-2">{title}</h2>
+          <p className="text-gray-400 mb-4">{textarea}</p>
 
           {/* Movie Details */}
           <ul className="space-y-2">
-          <li>
-              <span className="font-semibold text-gray-300 badge badge-primary mt-2"> {genre}</span>
+            <li>
+              <span className="font-semibold text-gray-300 badge badge-primary mt-2">
+                {" "}
+                {genre}
+              </span>
             </li>
             <li>
-              <span className="font-semibold text-gray-300">Duration: {duration}</span> 
+              <span className="font-semibold text-gray-300">
+                Duration: {duration}
+              </span>
               mins
             </li>
-            
+
             <li>
-              <span className="font-semibold text-gray-300">Release: {release}</span> 
+              <span className="font-semibold text-gray-300">
+                Release: {release}
+              </span>
             </li>
             <li>
-              <span className="font-semibold text-gray-300">Rating:{rating}</span>/10
+              <span className="font-semibold text-gray-300">
+                Rating: {rating}
+              </span>
             </li>
           </ul>
 
@@ -119,19 +119,33 @@ const MovieDetails = () => {
           <div className="mt-6 flex space-x-4">
             <button
               onClick={() => handleDelete(_id)}
-              className="btn btn-error flex items-center space-x-2"
+              className="btn btn-error flex items-center space-x-2 hover:scale-105 transition-transform duration-300"
             >
               <AiFillDelete className="text-lg" />
               <span>Delete Movie</span>
             </button>
             <button
               onClick={() => handleAddFavorite(_id)}
-              className="btn btn-success flex items-center space-x-2"
+              className="btn btn-success flex items-center space-x-2 hover:scale-105 transition-transform duration-300"
             >
               <AiOutlineHeart className="text-lg" />
               <span>Add to Favorite</span>
             </button>
+
+            <Link to={`/updateMovie/${_id}`} className="btn btn-warning  px-8 py-3 shadow-lg flex items-center gap-2 hover:bg-yellow-600 transition duration-300 hover:scale-105 ">
+              <FaEdit className="text-white" />
+              Update Movie
+            </Link>
+
+          
           </div>
+          <Link
+              to={"/allMovies"}
+              className="btn btn-primary mt-4 w-52   px-8 py-3 shadow-lg flex items-center gap-2 hover:scale-105 transition-transform duration-300"
+            >
+              <FaPlay className="text-white" />
+              See All Movies
+            </Link>
         </div>
       </div>
     </div>

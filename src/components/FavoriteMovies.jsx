@@ -44,7 +44,7 @@ const FavoriteMovies = ({ favorite }) => {
       <img
         src={photo}
         alt="Pathaan Poster"
-        className="w-28 h-40 rounded-lg object-cover"
+        className="w-28 h-40 rounded-lg "
       />
 
       {/* Movie Info */}

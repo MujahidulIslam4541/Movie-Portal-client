@@ -36,7 +36,7 @@ const Movies = ({ movie }) => {
             </li>
             <li>
               <span className="font-bold text-gray-100">Rating: {rating}</span>{" "}
-              /10
+            
             </li>
           </ul>
 
