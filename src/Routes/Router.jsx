@@ -21,7 +21,7 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <MainHome></MainHome>,
-        loader: () => fetch("http://localhost:5000/movies"),
+        loader: () => fetch("https://movie-portal-server-lovat.vercel.app/movies"),
       },
 
       {
@@ -32,7 +32,7 @@ const Router = createBrowserRouter([
         path:'/UpdateMovie/:id',
         element:<UpdateMovie></UpdateMovie>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/movies/${params.id}`)
+          fetch(`https://movie-portal-server-lovat.vercel.app/movies/${params.id}`)
       },
       {
         path: "/addMovies",
@@ -45,7 +45,7 @@ const Router = createBrowserRouter([
       {
         path: "/allMovies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("http://localhost:5000/movies"),
+        loader: () => fetch("https://movie-portal-server-lovat.vercel.app/movies"),
       },
       {
         path: "/moviesDetails/:id",
@@ -55,7 +55,7 @@ const Router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/movies/${params.id}`),
+          fetch(`https://movie-portal-server-lovat.vercel.app/movies/${params.id}`),
       },
       {
         path: "/favorites",
@@ -64,7 +64,7 @@ const Router = createBrowserRouter([
             <Favaroites></Favaroites>
           </PrivetRoute>
         ),
-        loader:()=>fetch('http://localhost:5000/favorite')
+        loader:()=>fetch('https://movie-portal-server-lovat.vercel.app/favorite')
       },
       {
         path: "/login",

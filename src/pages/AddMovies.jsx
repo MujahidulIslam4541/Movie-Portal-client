@@ -29,7 +29,7 @@ const AddMovies = () => {
       });
     }
 
-    fetch("http://localhost:5000/movies", {
+    fetch("https://movie-portal-server-lovat.vercel.app/movies", {
       method: "POST",
       headers: {
         "content-type": "application/json",

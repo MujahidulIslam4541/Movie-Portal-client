@@ -20,7 +20,7 @@ const MovieDetails = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/movies/${_id}`, {
+        fetch(`https://movie-portal-server-lovat.vercel.app/movies/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -40,7 +40,7 @@ const MovieDetails = () => {
 
   // add favorite section added
   const handleAddFavorite = () => {
-    fetch(`http://localhost:5000/favorite`, {
+    fetch(`https://movie-portal-server-lovat.vercel.app/favorite`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

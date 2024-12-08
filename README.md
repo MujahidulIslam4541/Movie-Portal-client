@@ -3,7 +3,7 @@
 A feature-rich Movie Portal application developed using modern web technologies like **React**, **Firebase**, and **MongoDB**. The application provides users with seamless access to browse, search, and manage their favorite movies. 🚀
 
 ## 🌐 Website URL
-[Live Demo](https://your-website-url.com)  
+[Live Demo](https://movie-portal-70714.web.app/)  
 Replace the above link with your deployed website URL.
 
 ---

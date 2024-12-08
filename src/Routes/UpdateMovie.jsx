@@ -25,7 +25,7 @@ const UpdateMovie = () => {
       textarea,
     };
 
-    fetch(`http://localhost:5000/movies/${_id}`, {
+    fetch(`https://movie-portal-server-lovat.vercel.app/movies/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
