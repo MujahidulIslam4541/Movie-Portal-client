@@ -10,7 +10,6 @@ const MovieDetails = () => {
     movie;
   const navigate = useNavigate();
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -26,7 +25,6 @@ const MovieDetails = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               navigate("/");
               Swal.fire({
@@ -41,8 +39,7 @@ const MovieDetails = () => {
   };
 
   // add favorite section added
-  const handleAddFavorite = (_id) => {
-    console.log(_id);
+  const handleAddFavorite = () => {
     fetch(`http://localhost:5000/favorite`, {
       method: "POST",
       headers: {
@@ -52,7 +49,6 @@ const MovieDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success",

@@ -24,7 +24,6 @@ const UpdateMovie = () => {
       rating,
       textarea,
     };
-    console.log(UpdateMovie);
 
     fetch(`http://localhost:5000/movies/${_id}`, {
         method: "PUT",
@@ -35,7 +34,6 @@ const UpdateMovie = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.modifiedCount>0) {
             Swal.fire({
               title: "Success",

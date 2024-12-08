@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { getAuth, signInWithPopup } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createNewUser, setUser, updatedUserProfile } =
@@ -16,7 +17,6 @@ const Register = () => {
     const photo = from.photo.value;
     const email = from.email.value;
     const password = from.password.value;
-    console.log({ name, photo, email, password });
     
     const regexPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!regexPassword.test(password)) {
@@ -25,13 +25,12 @@ const Register = () => {
     createNewUser(email, password)
       .then((result) => {
         setUser(result.user);
-        console.log(result.user);
         updatedUserProfile({ displayName: name, photoURL: photo }).then(() => {
           navigate("/");
         });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error('This is an error!',error);
       });
   };
 
@@ -40,7 +39,7 @@ const Register = () => {
 
   const handleGoogleSignUp = () => {
     signInWithPopup(auth, provider).then((result) => {
-      console.log(result);
+      toast.loading('Waiting...',result);
     });
   };
 

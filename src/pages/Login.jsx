@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { signInWithPopup } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/Firebase";
+import toast from "react-hot-toast";
 const provider = new GoogleAuthProvider();
 export default function Login() {
   const { LoginUser, setUser } = useContext(AuthContext);
@@ -14,22 +15,20 @@ export default function Login() {
     const from = e.target;
     const email = from.email.value;
     const password = from.password.value;
-    console.log({ email, password });
 
     LoginUser(email, password)
       .then((result) => {
-        console.log(result);
         setUser(result.user);
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error('This is an error!',error);
       });
   };
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider).then((result) => {
-      console.log(result);
+      toast.loading('Waiting...',result);
     });
   };
 

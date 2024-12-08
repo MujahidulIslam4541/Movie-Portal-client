@@ -4,7 +4,6 @@ import { MdFavorite } from "react-icons/md";
 
 const Favaroites = () => {
   const favoriteMovies = useLoaderData();
-  console.log(favoriteMovies);
   return (
     <div>
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-10 rounded-lg shadow-xl text-center">

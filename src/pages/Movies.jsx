@@ -3,20 +3,17 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Movies = ({ movie }) => {
-  // console.log(movie);
 
   const { title, duration, genre, rating, release, _id, photo } = movie;
   return (
     <div className="mt-10">
       <div className="bg-gray-800 text-gray-100 rounded-lg shadow-xl overflow-hidden">
-        {/* Movie Poster */}
         <img
           src={photo}
           alt={title}
           className="w-full h-48 "
         />
 
-        {/* Movie Details */}
         <div className="p-6">
           <h2 className="text-2xl font-bold text-white">{title}</h2>
           <span className="badge badge-primary mt-2">{genre}</span>
@@ -40,7 +37,6 @@ const Movies = ({ movie }) => {
             </li>
           </ul>
 
-          {/* Button */}
           <Link
             to={`/moviesDetails/${_id}`}
             className="btn btn-primary w-full mt-4 flex items-center justify-center space-x-2"
