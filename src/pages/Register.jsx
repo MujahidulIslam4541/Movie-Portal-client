@@ -5,6 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { getAuth, signInWithPopup } from "firebase/auth";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createNewUser, setUser, updatedUserProfile } =
@@ -20,7 +21,11 @@ const Register = () => {
     
     const regexPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!regexPassword.test(password)) {
-      return alert("please provide valid password");
+      return Swal.fire({
+        title: "Oops!",
+        text: "please provide valid password",
+        icon: "error",
+      });
     }
     createNewUser(email, password)
       .then((result) => {

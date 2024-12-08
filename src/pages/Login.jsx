@@ -6,6 +6,7 @@ import { signInWithPopup } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/Firebase";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 const provider = new GoogleAuthProvider();
 export default function Login() {
   const { LoginUser, setUser } = useContext(AuthContext);
@@ -19,6 +20,11 @@ export default function Login() {
     LoginUser(email, password)
       .then((result) => {
         setUser(result.user);
+        Swal.fire({
+          title: "Success",
+          text: "Login Successful",
+          icon: "success",
+        });
         navigate("/");
       })
       .catch((error) => {
