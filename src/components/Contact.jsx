@@ -32,7 +32,7 @@ const Contact = () => {
   return (
     <div>
       <section
-        className="h-auto p-16 bg-gradient-to-r from-white to-gray-100"
+        className="h-auto p-16 bg-gradient-to-r from-white to-gray-100 "
       >
         <div className="text-center mb-8">
           <p className="text-gray-600">Contact</p>
@@ -41,7 +41,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Left Side */}
-          <div className="flex flex-col space-y-4 p-6 bg-white shadow-2xl rounded-lg border border-gray-200 ">
+          <div className="flex flex-col space-y-4 p-6 bg-white shadow-2xl rounded-lg border-2 border-gray-200 ">
             <img
               src={contactImage}
               alt="Contact"
@@ -63,7 +63,7 @@ const Contact = () => {
           </div>
 
           {/* Right Section */}
-          <div className="lg:col-span-2 flex flex-col p-6 bg-white shadow-2xl rounded-lg border border-gray-200">
+          <div className="lg:col-span-2 flex flex-col p-6 bg-white shadow-2xl rounded-lg border-2 border-gray-200">
             <form onSubmit={onSubmit} className="space-y-3">
               <div>
                 <label htmlFor="name" className="block text-gray-700">

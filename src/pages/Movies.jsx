@@ -1,41 +1,35 @@
 /* eslint-disable react/prop-types */
+import { Rating } from "@smastrom/react-rating";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import "@smastrom/react-rating/style.css";
 
 const Movies = ({ movie }) => {
-
   const { title, duration, genre, rating, release, _id, photo } = movie;
   return (
     <div className="mt-10">
       <div className="bg-gray-800 text-gray-100 rounded-lg shadow-xl overflow-hidden">
-        <img
-          src={photo}
-          alt={title}
-          className="w-full h-48 "
-        />
+        <div className="relative">
+          {/* Image */}
+          <img
+            src={photo}
+            alt={title}
+            className="w-full h-48 object-cover rounded-lg"
+          />
 
+          {/* Duration Badge */}
+          <span className="absolute top-2 right-2 bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg">
+            {duration} mins
+          </span>
+        </div>
         <div className="p-6">
           <h2 className="text-2xl font-bold text-white">{title}</h2>
+
           <span className="badge badge-primary mt-2">{genre}</span>
 
-          <ul className="mt-4 space-y-2 text-sm text-gray-300">
-            <li>
-              <span className="font-bold text-gray-100">
-                Duration: {duration}
-              </span>
-              mins
-            </li>
-            <li>
-              <span className="font-bold text-gray-100">
-                Release: {release}
-              </span>
-              Year
-            </li>
-            <li>
-              <span className="font-bold text-gray-100">Rating: {rating}</span>{" "}
-            
-            </li>
-          </ul>
+          <p className="mt-4">
+            <Rating style={{ maxWidth: 90 }} value={rating} readOnly />
+          </p>
 
           <Link
             to={`/moviesDetails/${_id}`}

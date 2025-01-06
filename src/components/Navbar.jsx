@@ -104,7 +104,7 @@ export default function Navbar() {
   );
   return (
     <>
-      <div className="navbar  backdrop-blur-xl z-50 fixed top-0 left-0 bg-gray-800/30  ">
+      <div className="navbar px-16 backdrop-blur-xl z-50 fixed top-0 left-0 bg-gray-800/30  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -134,7 +134,7 @@ export default function Navbar() {
               </div>
             </ul>
           </div>
-          <a className="btn btn-ghost text-2xl font-bold">CinemaSpot</a>
+          <a className=" text-2xl font-bold">CinemaSpot</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{item}</ul>

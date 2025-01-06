@@ -51,9 +51,7 @@ const Router = createBrowserRouter([
       {
         path: "/moviesDetails/:id",
         element: (
-          <PrivetRoute>
-            <MovieDetails></MovieDetails>,
-          </PrivetRoute>
+            <MovieDetails></MovieDetails>
         ),
         loader: ({ params }) =>
           fetch(`https://movie-portal-server-lovat.vercel.app/movies/${params.id}`),
