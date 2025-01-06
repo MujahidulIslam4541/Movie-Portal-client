@@ -11,6 +11,7 @@ import MainHome from "../pages/MainHome";
 import MovieDetails from "../pages/MovieDetails";
 import Favaroites from "../components/Favaroites";
 import UpdateMovie from "./UpdateMovie";
+import Contact from "../components/Contact";
 // import Movies from "../pages/Movies";
 
 const Router = createBrowserRouter([
@@ -69,6 +70,10 @@ const Router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/register",

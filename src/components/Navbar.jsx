@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -6,9 +6,105 @@ import ThemeContoler from "./ThemeContoler";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
+  const [active, setActive] = useState("/");
+
+  const handleActive = (section) => {
+    setActive(section);
+  };
+
+  const item = (
+    <>
+      <li>
+        <Link
+          to="/"
+          onClick={() => {
+            handleActive("/");
+          }}
+          className={`${
+            active === "/"
+              ? " bg-blue-500 text-white font-semibold  hover:bg-blue-600"
+              : "text-white"
+          } transition ease-in-out duration-300`}
+        >
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/about"
+          onClick={() => handleActive("/about")}
+          className={`${
+            active === "/about"
+              ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
+              : "text-white"
+          } transition ease-in-out duration-300`}
+        >
+          About
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/contact"
+          onClick={() => handleActive("/contact")}
+          className={`${
+            active === "/contact"
+              ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
+              : "text-white"
+          } transition ease-in-out duration-300`}
+        >
+          Contact
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/allMovies"
+          onClick={() => handleActive("/allMovies")}
+          className={`${
+            active === "/allMovies"
+              ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
+              : "text-white"
+          } transition ease-in-out duration-300`}
+        >
+          All Movies
+        </Link>
+      </li>
+      {user && user.email ? (
+        <>
+          <li>
+            <Link
+              to="/addMovies"
+              onClick={() => handleActive("/addMovies")}
+              className={`${
+                active === "/addMovies"
+                  ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
+                  : "text-white"
+              } transition ease-in-out duration-300`}
+            >
+              Add Movie
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/favorites"
+              onClick={() => handleActive("/favorites")}
+              className={`${
+                active === "/favorites"
+                  ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
+                  : "text-white"
+              } transition ease-in-out duration-300`}
+            >
+              My Favorites
+            </Link>
+          </li>
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  );
   return (
     <>
-      <div className="navbar  backdrop-blur-xl z-50 fixed top-0 left-0 bg-blue-400/30  ">
+      <div className="navbar  backdrop-blur-xl z-50 fixed top-0 left-0 bg-gray-800/30  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,21 +127,8 @@ export default function Navbar() {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/allMovies">All Movies</Link>
-              </li>
-              <li>
-                <Link to="/addMovies">Add Movie</Link>
-              </li>
-              <li>
-                <Link to="/favorites">My Favorites</Link>
-              </li>
+              {item}
+
               <div>
                 <ThemeContoler></ThemeContoler>
               </div>
@@ -54,52 +137,10 @@ export default function Navbar() {
           <a className="btn btn-ghost text-2xl font-bold">CinemaSpot</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link
-                to="/"
-                className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/allMovies"
-                className=" hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
-              >
-                All Movies
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/addMovies"
-                className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
-              >
-                Add Movie
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/favorites"
-                className="hover:border-2 hover:border-blue-500 transition ease-in-out duration-200"
-              >
-                My Favorites
-              </Link>
-            </li>
-            
-          </ul>
+          <ul className="menu menu-horizontal px-1">{item}</ul>
         </div>
         <div className="navbar-end">
-        <div className="hidden md:block ">
+          <div className="hidden md:block ">
             <ThemeContoler></ThemeContoler>
           </div>
           <div>
