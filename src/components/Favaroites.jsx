@@ -3,7 +3,7 @@ import FavoriteMovies from "./FavoriteMovies";
 import { MdFavorite } from "react-icons/md";
 
 const Favaroites = () => {
-  const favoriteMovies = useLoaderData();
+  // const favoriteMovies = useLoaderData();
   return (
     <div>
       <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-10 rounded-lg shadow-xl text-center">
@@ -23,14 +23,14 @@ const Favaroites = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto">
         {favoriteMovies.map((favorite) => (
           <FavoriteMovies
             key={favorite._id}
             favorite={favorite}
           ></FavoriteMovies>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

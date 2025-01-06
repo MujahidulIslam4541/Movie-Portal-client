@@ -4,6 +4,7 @@ import Home from "./Home";
 import Movies from "./Movies";
 import UpcomingMovie from "../components/UpcomingMovie";
 import ExtraSection from "../components/ExtraSection";
+import Reviews from '../components/Reviews'
 
 const MainHome = () => {
   const movies = useLoaderData();
@@ -31,12 +32,16 @@ const MainHome = () => {
         </div>
       </section>
 
-      <section className="mt-32 w-11/12 mx-auto">
+      <section className="mt-20 w-11/12 mx-auto">
         <UpcomingMovie></UpcomingMovie>
       </section>
 
       <section className="mt-20 w-11/12 mx-auto">
         <ExtraSection></ExtraSection>
+      </section>
+
+      <section className="w-11/12 mx-auto">
+        <Reviews></Reviews>
       </section>
     </div>
   );

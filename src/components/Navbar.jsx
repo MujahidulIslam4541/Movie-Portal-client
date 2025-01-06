@@ -154,9 +154,7 @@ export default function Navbar() {
                 {/* <p>{user.displayName}</p> */}
               </div>
             ) : (
-              <p className="text-4xl mr-4">
-                <FaRegUserCircle />
-              </p>
+              ''
             )}
           </div>
           {user && user.email ? (
@@ -167,12 +165,20 @@ export default function Navbar() {
               LogOut
             </button>
           ) : (
-            <Link
-              to="/login"
-              className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
-            >
-              Login
-            </Link>
+            <div className="flex gap-2">
+              <Link
+                to="/register"
+                className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
+              >
+                Register
+              </Link>
+              <Link
+                to="/login"
+                className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
+              >
+                Login
+              </Link>
+            </div>
           )}
         </div>
       </div>

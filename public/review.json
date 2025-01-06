@@ -1,0 +1,86 @@
+[
+    {
+        "_id": "643010e0f5a7e52ce1e8fa65",
+        "name": "Alice Walker",
+        "details": "I absolutely loved the movie collection here! The interface is sleek, and I can easily find all my favorite movies.",
+        "rating": 4
+    },
+    {
+        "_id": "643010f9f5a7e52ce1e8fa66",
+        "name": "Bob Martin",
+        "details": "A great platform for watching movies! The only downside is that sometimes the loading takes a bit longer.",
+        "rating": 3
+    },
+    {
+        "_id": "6430110af5a7e52ce1e8fa67",
+        "name": "Charlie Williams",
+        "details": "The search feature is amazing! I can find any movie in just seconds. Highly recommend this portal.",
+        "rating": 5
+    },
+    {
+        "_id": "64301123f5a7e52ce1e8fa68",
+        "name": "Diana King",
+        "details": "I like the layout and the easy-to-navigate design. The movie recommendations are spot on.",
+        "rating": 4
+    },
+    {
+        "_id": "6430113af5a7e52ce1e8fa69",
+        "name": "Ethan Harris",
+        "details": "Fantastic experience! I love that I can rate movies and keep track of my favorites.",
+        "rating": 5
+    },
+    {
+        "_id": "6430115af5a7e52ce1e8fa70",
+        "name": "Fiona Brown",
+        "details": "Nice platform, but the video quality could be improved. Sometimes the resolution isn't as good as I would like.",
+        "rating": 3
+    },
+    {
+        "_id": "6430116bf5a7e52ce1e8fa71",
+        "name": "George Clark",
+        "details": "Amazing movie portal! The categories are well-organized, and I can easily explore different genres.",
+        "rating": 5
+    },
+    {
+        "_id": "6430117cf5a7e52ce1e8fa72",
+        "name": "Hannah Lee",
+        "details": "The movie library is huge! There's always something new to watch. Definitely worth subscribing to.",
+        "rating": 5
+    },
+    {
+        "_id": "6430118df5a7e52ce1e8fa73",
+        "name": "Isaac Turner",
+        "details": "I wish there were more documentaries. But other than that, the platform is fantastic!",
+        "rating": 4
+    },
+    {
+        "_id": "6430119ef5a7e52ce1e8fa74",
+        "name": "Jack Evans",
+        "details": "The interface is clean, but sometimes the playback speed is a bit inconsistent. Overall, it's a great site for movie lovers.",
+        "rating": 3
+    },
+    {
+        "_id": "643011a0f5a7e52ce1e8fa75",
+        "name": "Kylie Carter",
+        "details": "I love the dark mode feature. It's easy on the eyes and makes watching movies at night so much better.",
+        "rating": 4
+    },
+    {
+        "_id": "643011b1f5a7e52ce1e8fa76",
+        "name": "Leo Walker",
+        "details": "Great user interface and fast loading times. This is my go-to movie portal now!",
+        "rating": 5
+    },
+    {
+        "_id": "643011c2f5a7e52ce1e8fa77",
+        "name": "Megan Scott",
+        "details": "A good portal, but I'd love to see more international movies added to the collection.",
+        "rating": 4
+    },
+    {
+        "_id": "643011d3f5a7e52ce1e8fa78",
+        "name": "Nate Davis",
+        "details": "Really enjoy using this site. The movies load quickly, and the overall experience is smooth.",
+        "rating": 5
+    }
+]

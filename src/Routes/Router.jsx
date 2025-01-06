@@ -12,6 +12,7 @@ import MovieDetails from "../pages/MovieDetails";
 import Favaroites from "../components/Favaroites";
 import UpdateMovie from "./UpdateMovie";
 import Contact from "../components/Contact";
+import FavoriteMovies from "../components/FavoriteMovies";
 // import Movies from "../pages/Movies";
 
 const Router = createBrowserRouter([
@@ -60,7 +61,7 @@ const Router = createBrowserRouter([
         path: "/favorites",
         element: (
           <PrivetRoute>
-            <Favaroites></Favaroites>
+            <FavoriteMovies></FavoriteMovies>
           </PrivetRoute>
         ),
         loader:()=>fetch('https://movie-portal-server-lovat.vercel.app/favorite')
