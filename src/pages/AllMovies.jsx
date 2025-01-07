@@ -25,6 +25,28 @@ const AllMovies = () => {
         </p>
       </div>
 
+      <div className="mt-10 w-11/12 mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+        <input
+          type="search"
+          name="movieSearch"
+          id="movieSearch"
+          className="w-96 p-3 border-2 rounded-lg text-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-md"
+          placeholder="Search for your favorite movie..."
+          aria-label="Search for movies"
+        />
+        <select
+          name="order"
+          id="order"
+          className="w-48 p-3 border-2 rounded-lg text-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-md"
+        >
+          <option value="" disabled selected>
+            Sort by Order
+          </option>
+          <option value="asc">Ascending Order</option>
+          <option value="desc">Descending Order</option>
+        </select>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-11/12 mx-auto">
         {movies.map((movie) => (
           <Movies key={movie._id} movie={movie}></Movies>

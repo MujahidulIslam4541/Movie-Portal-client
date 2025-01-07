@@ -9,7 +9,6 @@ import ErrorPage from "../components/ErrorPage";
 import PrivetRoute from "../provider/privetRoute";
 import MainHome from "../pages/MainHome";
 import MovieDetails from "../pages/MovieDetails";
-import Favaroites from "../components/Favaroites";
 import UpdateMovie from "./UpdateMovie";
 import Contact from "../components/Contact";
 import FavoriteMovies from "../components/FavoriteMovies";

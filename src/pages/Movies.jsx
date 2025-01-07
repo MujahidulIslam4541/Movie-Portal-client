@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "@smastrom/react-rating/style.css";
 
 const Movies = ({ movie }) => {
-  const { title, duration, genre, rating, release, _id, photo } = movie;
+  const { title, duration, genre, rating,  _id, photo } = movie;
   return (
     <div className="mt-10">
       <div className="bg-gray-800 text-gray-100 rounded-lg shadow-xl overflow-hidden">

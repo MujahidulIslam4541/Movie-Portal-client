@@ -3,6 +3,8 @@ import { FaEdit, FaPlay } from "react-icons/fa";
 import { MdOutlineMovie } from "react-icons/md";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const MovieDetails = () => {
   const movie = useLoaderData();
@@ -61,12 +63,12 @@ const MovieDetails = () => {
 
   return (
     <div>
-      <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-10 rounded-lg shadow-xl text-center">
+      <div className="bg-gradient-to-r text-blue-500 p-10 rounded-lg shadow-xl text-center">
         <div className="flex justify-center items-center space-x-3">
           <MdOutlineMovie className="text-yellow-400 text-4xl" />
-          <h1 className="text-3xl font-bold text-white">Movie Details</h1>
+          <h1 className="text-3xl font-bold ">Movie Details</h1>
         </div>
-        <p className="mt-5 text-lg text-gray-300 leading-relaxed">
+        <p className="mt-5 text-lg leading-relaxed">
           Welcome to the detailed view of your selected movie! Here, you’ll find
           all the important information, from the plot summary and cast details
           to reviews, ratings, and much more. Dive deeper into what makes this
@@ -75,7 +77,7 @@ const MovieDetails = () => {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg">
+      <div className=" w-11/12 mx-auto mt-5 flex flex-col md:flex-row items-center bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg">
         <div className="w-full h-80 md:w-1/3 rounded-lg overflow-hidden shadow-md">
           <img src={photo} alt={title} className=" w-full h-full" />
         </div>
@@ -93,10 +95,10 @@ const MovieDetails = () => {
               </span>
             </li>
             <li>
-              <span className="font-semibold text-gray-300">
-                Duration: {duration}
+              <span className="font-semibold text-gray-300 badge badge-primary mt-2">
+                {" "}
+                {duration} mins
               </span>
-              mins
             </li>
 
             <li>
@@ -105,9 +107,7 @@ const MovieDetails = () => {
               </span>
             </li>
             <li>
-              <span className="font-semibold text-gray-300">
-                Rating: {rating}
-              </span>
+              <Rating style={{ maxWidth: 140 }} value={rating} readOnly />
             </li>
           </ul>
 
@@ -128,7 +128,10 @@ const MovieDetails = () => {
               <span>Add to Favorite</span>
             </button>
 
-            <Link to={`/updateMovie/${_id}`} className="btn col-span-1 btn-warning  px-8 py-3 shadow-lg flex items-center gap-2 hover:bg-yellow-600 transition duration-300 hover:scale-105 ">
+            <Link
+              to={`/updateMovie/${_id}`}
+              className="btn col-span-1 btn-warning  px-8 py-3 shadow-lg flex items-center gap-2 hover:bg-yellow-600 transition duration-300 hover:scale-105 "
+            >
               <FaEdit className="text-white" />
               Update Movie
             </Link>
@@ -139,10 +142,7 @@ const MovieDetails = () => {
               <FaPlay className="text-white" />
               See All Movies
             </Link>
-
-          
           </div>
-          
         </div>
       </div>
     </div>
