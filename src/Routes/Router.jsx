@@ -46,7 +46,6 @@ const Router = createBrowserRouter([
       {
         path: "/allMovies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("https://movie-portal-server-lovat.vercel.app/movies"),
       },
       {
         path: "/moviesDetails/:id",

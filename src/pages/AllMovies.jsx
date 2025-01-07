@@ -1,9 +1,17 @@
-import { useLoaderData } from "react-router-dom";
 import Movies from "./Movies";
 import { MdLocalMovies } from "react-icons/md";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const AllMovies = () => {
-  const movies = useLoaderData();
+  const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
+  const [sort,setSort]=useState('')
+  useEffect(() => {
+    axios.get(`https://movie-portal-server-lovat.vercel.app/movies?search=${search}&sort=${sort}`).then((res) => {
+      setMovies(res.data);
+    });
+  }, [search,sort]);
 
   return (
     <>
@@ -29,18 +37,18 @@ const AllMovies = () => {
         <input
           type="search"
           name="movieSearch"
-          id="movieSearch"
-          className="w-96 p-3 border-2 rounded-lg text-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-md"
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-96 p-3 border-2 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
           placeholder="Search for your favorite movie..."
           aria-label="Search for movies"
         />
         <select
           name="order"
-          id="order"
-          className="w-48 p-3 border-2 rounded-lg text-lg focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-md"
+          onChange={e=>setSort(e.target.value)}
+          className="w-48 p-3 border-2 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
         >
           <option value="" disabled selected>
-            Sort by Order
+            Sort by Rating
           </option>
           <option value="asc">Ascending Order</option>
           <option value="desc">Descending Order</option>

@@ -1,100 +1,88 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { FaRegUserCircle } from "react-icons/fa";
 import ThemeContoler from "./ThemeContoler";
 
 export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
-  const [active, setActive] = useState("/");
 
-  const handleActive = (section) => {
-    setActive(section);
-  };
+  // };
 
   const item = (
     <>
       <li>
-        <Link
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "bg-blue-500 text-white font-semibold px-4 py-2 rounded-md"
+              : "text-blue-500 px-4 py-2"
+          }
           to="/"
-          onClick={() => {
-            handleActive("/");
-          }}
-          className={`${
-            active === "/"
-              ? " bg-blue-500 text-white font-semibold  hover:bg-blue-600"
-              : "text-white"
-          } transition ease-in-out duration-300`}
         >
           Home
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "bg-blue-500 text-white font-semibold px-4 py-2 rounded-md"
+              : "text-blue-500 px-4 py-2"
+          }
           to="/about"
-          onClick={() => handleActive("/about")}
-          className={`${
-            active === "/about"
-              ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
-              : "text-white"
-          } transition ease-in-out duration-300`}
         >
           About
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "bg-blue-500 text-white font-semibold px-4 py-2 rounded-md"
+              : "text-blue-500 px-4 py-2"
+          }
           to="/contact"
-          onClick={() => handleActive("/contact")}
-          className={`${
-            active === "/contact"
-              ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
-              : "text-white"
-          } transition ease-in-out duration-300`}
         >
           Contact
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <Link
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "bg-blue-500 text-white font-semibold px-4 py-2 rounded-md"
+              : "text-blue-500 px-4 py-2"
+          }
           to="/allMovies"
-          onClick={() => handleActive("/allMovies")}
-          className={`${
-            active === "/allMovies"
-              ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
-              : "text-white"
-          } transition ease-in-out duration-300`}
         >
           All Movies
-        </Link>
+        </NavLink>
       </li>
       {user && user.email ? (
         <>
           <li>
-            <Link
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-blue-500 text-white font-semibold px-4 py-2 rounded-md"
+                  : "text-blue-500 px-4 py-2"
+              }
               to="/addMovies"
-              onClick={() => handleActive("/addMovies")}
-              className={`${
-                active === "/addMovies"
-                  ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
-                  : "text-white"
-              } transition ease-in-out duration-300`}
             >
               Add Movie
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-blue-500 text-white font-semibold px-4 py-2 rounded-md"
+                  : "text-blue-500 px-4 py-2"
+              }
               to="/favorites"
-              onClick={() => handleActive("/favorites")}
-              className={`${
-                active === "/favorites"
-                  ? "bg-blue-500 text-white font-semibold  hover:bg-blue-600"
-                  : "text-white"
-              } transition ease-in-out duration-300`}
             >
               My Favorites
-            </Link>
+            </NavLink>
           </li>
         </>
       ) : (
@@ -104,7 +92,7 @@ export default function Navbar() {
   );
   return (
     <>
-      <div className="navbar px-16 backdrop-blur-xl z-50 fixed top-0 left-0 bg-gray-800/30  ">
+      <div className="navbar px-2 md:px-16 backdrop-blur-xl z-50 fixed top-0 left-0 bg-gray-800/30  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -125,16 +113,41 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {item}
+              <div className="mt-5">
+                {user && user.email ? (
+                  <button
+                    onClick={logOut}
+                    className="py-2  transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+                  >
+                    LogOut
+                  </button>
+                ) : (
+                  <div className="flex gap-1">
+                    <Link
+                      to="/register"
+                      className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+                    >
+                      Register
+                    </Link>
+                    <Link
+                      to="/login"
+                      className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+                    >
+                      Login
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               <div>
                 <ThemeContoler></ThemeContoler>
               </div>
             </ul>
           </div>
-          <a className=" text-2xl font-bold">CinemaSpot</a>
+          <a className=" text-2xl font-bold text-blue-600">CinemaSpot</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{item}</ul>
@@ -143,43 +156,43 @@ export default function Navbar() {
           <div className="hidden md:block ">
             <ThemeContoler></ThemeContoler>
           </div>
-          <div>
+          <div className="flex gap-2 items-center">
             {user && user.email ? (
-              <div>
+              <div className="group relative inline-block">
                 <img
                   className="w-10 h-10 rounded-full mr-2"
                   src={user.photoURL}
                   alt=""
                 />
-                {/* <p>{user.displayName}</p> */}
+                <p className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-full opacity-0 group:hover:-translate-y-1 bg-gray-800 text-white text-sm px-2 py-1 rounded group-hover:opacity-100 transition-all duration-300 w-40 ">{user.displayName}</p>
               </div>
             ) : (
-              ''
+              ""
+            )}
+            {user && user.email ? (
+              <button
+                onClick={logOut}
+                className="py-2  transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+              >
+                LogOut
+              </button>
+            ) : (
+              <div className="flex gap-1">
+                <Link
+                  to="/register"
+                  className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+                >
+                  Register
+                </Link>
+                <Link
+                  to="/login"
+                  className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+                >
+                  Login
+                </Link>
+              </div>
             )}
           </div>
-          {user && user.email ? (
-            <button
-              onClick={logOut}
-              className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
-            >
-              LogOut
-            </button>
-          ) : (
-            <div className="flex gap-2">
-              <Link
-                to="/register"
-                className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
-              >
-                Register
-              </Link>
-              <Link
-                to="/login"
-                className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white"
-              >
-                Login
-              </Link>
-            </div>
-          )}
         </div>
       </div>
     </>

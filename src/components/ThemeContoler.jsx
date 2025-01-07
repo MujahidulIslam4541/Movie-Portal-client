@@ -6,7 +6,7 @@ const ThemeContoler = () => {
         const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
       
         const handleThemeToggle = () => {
-          const newTheme = theme === "light" ? "dark" : "light";
+          const newTheme = theme === "light" ? "light" : "dark";
           setTheme(newTheme);
           localStorage.setItem("theme", newTheme);
           document.documentElement.setAttribute("data-theme", newTheme);
