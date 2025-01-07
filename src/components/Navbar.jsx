@@ -164,34 +164,38 @@ export default function Navbar() {
                   src={user.photoURL}
                   alt=""
                 />
-                <p className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-full opacity-0 group:hover:-translate-y-1 bg-gray-800 text-white text-sm px-2 py-1 rounded group-hover:opacity-100 transition-all duration-300 w-40 ">{user.displayName}</p>
+                <p className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-full opacity-0 group:hover:-translate-y-1 bg-gray-800 text-white text-sm px-2 py-1 rounded group-hover:opacity-100 transition-all duration-300 w-40 ">
+                  {user.displayName}
+                </p>
               </div>
             ) : (
               ""
             )}
-            {user && user.email ? (
-              <button
-                onClick={logOut}
-                className="py-2  transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
-              >
-                LogOut
-              </button>
-            ) : (
-              <div className="flex gap-1">
-                <Link
-                  to="/register"
-                  className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+            <div className="hidden lg:flex">
+              {user && user.email ? (
+                <button
+                  onClick={logOut}
+                  className="py-2  transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
                 >
-                  Register
-                </Link>
-                <Link
-                  to="/login"
-                  className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
-                >
-                  Login
-                </Link>
-              </div>
-            )}
+                  LogOut
+                </button>
+              ) : (
+                <div className="flex gap-1">
+                  <Link
+                    to="/register"
+                    className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+                  >
+                    Register
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="py-2 transition ease-in-out duration-150 px-6 border-2 border-blue-500 rounded-lg hover:bg-blue-500 text-white"
+                  >
+                    Login
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
